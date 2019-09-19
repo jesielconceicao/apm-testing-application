@@ -1,0 +1,15 @@
+#version: '3.3'
+
+benchmark-app:
+  dns:
+   - 172.23.1.1
+   - 172.23.1.10
+   - 8.8.8.8
+  image: docker-unj-repo.softplan.com.br/unj/benchmark-app
+  ports:
+    - 8080:80
+  environment:
+    - ELASTIC_APM_SERVER_URL=http://apm.noruega.softplan.com.br:8200
+    - ELASTIC_APM_SERVICE_NAME=apm-testing-app-docker-compose
+    - ELASTIC_APM_LOG_FILE=stderr
+    - ELASTIC_APM_LOG_LEVEL=debug    
